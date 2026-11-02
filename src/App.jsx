@@ -6,7 +6,11 @@ function App() {
     <>
       
         <main>
-          <h1>Calendario de Feriados</h1>
+          <header className="header">
+            
+            <h1>Calendario de Feriados</h1>
+            <p>Feriados Nacionais do Brasil</p>
+          </header>
         </main>
       
     </>

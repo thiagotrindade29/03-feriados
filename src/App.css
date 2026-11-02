@@ -16,3 +16,26 @@
 }
 
 /* FINAL - Header */
+
+/* INICIO - Feriado */
+
+.next-holiday {
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: #1f4e73;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+
+.next-holiday h2 {
+  font-size: 22px;
+}
+
+.countdown {
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* FINAL - Feriado */

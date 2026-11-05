@@ -2,9 +2,12 @@ import './Holiday-card.css';
 
 
 
-export default function HolidayCard({ date, name, weekend, type }) {
+export default function HolidayCard({ date, name, weekend }) {
   const day = new Date(`${date}T00:00:00`);
   const formattedDate = day.toLocaleDateString('pt-BR');
+  const isLongWeekend = weekend == 'segunda-feira' || weekend == 'sexta-feira';
+  const isWeekend = weekend == 'sábado' || weekend == 'domingo';
+  const isBrigde = weekend == 'terça-feira' || weekend == 'quinta-feira';
 
   return (
     <article key={date} className="holiday-card">
@@ -15,7 +18,9 @@ export default function HolidayCard({ date, name, weekend, type }) {
         <p>{weekend}</p>
       </div>
 
-      <span className="tag weekend">{type}</span>
+      {isLongWeekend && <span className="tag long-weekend">Feriadão</span>}
+      {isWeekend && <span className="tag weekend">Fim de semana</span>}
+      {isBrigde && <span className="tag bridge">Emenda</span>}
     </article>
   )
 }

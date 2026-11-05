@@ -17,7 +17,12 @@ function App() {
 
       <main className="holiday-list">
         {holidays.map((item) => (
-          <HolidayCard key={item.date} date={item.date} name={item.name} weekend={item.weekend} type={item.type} />
+          <HolidayCard
+            key={item.date}
+            date={item.date}
+            name={item.name}
+            weekend={item.weekend}
+          />
         ))}
       </main>
     </>

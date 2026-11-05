@@ -2,6 +2,7 @@ import "./App.css";
 
 /* importa de components */
 import Header from "./components/Header";
+import NextHoliday from "./components/NextHoliday";
 /* importa de data */
 import holidays from "./data/holiday";
 
@@ -9,14 +10,8 @@ function App() {
   return (
     <>
       <Header />
-
-      <section className="next-holiday">
-        <p>O próximo é</p>
-        <h2>Finados</h2>
-        <p>segunda-feira, 02/11/2026</p>
-        <h2 className="countdown">Faltam 5 d, 2 h, 37 min e 22 s</h2>
-      </section>
-
+      <NextHoliday />
+      
       <p className="count">14 feriados em 2026</p>
 
       <main className="holiday-list">

@@ -1,13 +1,14 @@
 import "./App.css";
+
+/* importa de components */
+import Header from "./components/Header";
+/* importa de data */
 import holidays from "./data/holiday";
 
 function App() {
   return (
     <>
-      <header className="header">
-        <h1>Próximo Feriado</h1>
-        <p>Feriados nacionais do Brasil</p>
-      </header>
+      <Header />
 
       <section className="next-holiday">
         <p>O próximo é</p>

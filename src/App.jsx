@@ -1,3 +1,6 @@
+/* React Imports */
+import { useState } from "react";
+
 import "./App.css";
 
 /* Components Imports */
@@ -5,39 +8,47 @@ import Header from "./components/Header";
 import Holidaycard from "./components/HolidayCard";
 import NextHoliday from "./components/NextHoliday";
 import MonthFilter from "./components/MothFilter";
-
-/* React Imports */
-import { useState } from "react";
+import YearForm from "./components/YearForm";
 
 /* Mocked data */
 import holidays from "./data/holidays";
 
 function App() {
   const [month, setMonth] = useState("");
+
+  const isVisible = holidays.filter((holiday) => {
+    return month === "" || holiday.date.includes(`-${month}-`);
+  });
+
   return (
     <>
       <Header />
 
       <NextHoliday />
 
-      <p className="count">14 feriados em 2026</p>
+
 
       <section className="filter">
-        {/* <YearForm year={year} onSearch={setYear} /> */}
+        <YearForm />
         <MonthFilter month={month} onChange={setMonth} />
-
       </section>
 
-      <main className="holiday-list">
-        {holidays.map((item) => (
-          <Holidaycard
-            key={item.date}
-            date={item.date}
-            name={item.name}
-            weekday={item.weekday}
-          />
-        ))}
-      </main>
+      <p className="count">14 feriados em 2026</p>
+
+      {isVisible.length == 0 ? (
+        <p className="empty">Nenhum feriado neste mês.</p>
+      ) : (
+        <main className="holiday-list">
+          {isVisible.map((item) => (
+            <Holidaycard
+              key={item.date}
+              date={item.date}
+              name={item.name}
+              weekday={item.weekday}
+            />
+          ))}
+        </main>
+      )}
     </>
   );
 }

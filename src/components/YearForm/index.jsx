@@ -1,17 +1,34 @@
-import './year-form.css';
+import { useState, useEffect, useRef } from "react";
 
-export default function YearForm() {
+import "./year-form.css";
+
+export default function YearForm({ year, onSearch }) {
+  const [text, setText] = useState(year);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onSearch(text);
+  }
+
   return (
-    <form className="year-form">
-      <label htmlFor="year">Ano:</label>
+    <form className="year-form" onSubmit={handleSubmit}>
+      <label htmlFor="year">Ano</label>
       <div className="year-row">
         <input
-          type="number"
-          name="year"
           id="year"
+          type="number"
           placeholder="2026"
+          ref={inputRef}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
           required
         />
+        <button disabled={text.length != 4}>Buscar</button>
       </div>
     </form>
   );
